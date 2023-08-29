@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { format } from "date-fns";
 
 const App = () => {
   const [images, setImages] = useState();
@@ -21,6 +22,11 @@ const App = () => {
       <div className="timeline">
         {images?.map((img) => (
           <div className="item" key={img.id}>
+            <div className="timestamp">
+              <label className="timestamp">
+                {format(new Date(img.created_at), "d MMM yyyy")}
+              </label>
+            </div>
             <img
               src={`${img.url}.jpg`}
               alt={img.alt_description}
