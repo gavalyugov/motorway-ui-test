@@ -9,11 +9,7 @@ const App = () => {
     fetch("images?limit=10")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Success:", data);
-        setImages(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+        setImages(sortByDate(data));
       });
   }, []);
 
@@ -45,3 +41,15 @@ const App = () => {
 };
 
 export default App;
+
+// Helpers
+
+function sortByDate(images) {
+  return images.sort((image1, image2) => {
+    if (new Date(image1.created_at) <= new Date(image2.created_at)) {
+      return 1;
+    }
+
+    return -1;
+  });
+}
