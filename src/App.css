@@ -25,13 +25,24 @@ body {
     margin-bottom: 0.35rem;
 }
 
-.car {
+.car-container {
+    overflow: hidden;
     border-radius: 0.3rem;
+}
+
+.car {
+    transition: transform .2s;
     max-width: 16rem;
+    border-radius: 0.3rem;
 
     @media screen and (min-width: 60em) {
        max-width: 24rem;
     }
+}
+
+.car:hover {
+    transform: scale(1.125);
+    border-radius: 0.3rem;
 }
 
 .item {
@@ -42,7 +53,7 @@ body {
 
     @media screen and (min-width: 60em) {
         padding-left: 4rem;
-        margin: 4rem 0;
+        margin: 3.2rem 0;
      }
 }
 

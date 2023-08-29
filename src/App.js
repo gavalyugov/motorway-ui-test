@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { format } from "date-fns";
 import { ReactComponent as Like } from "./icons/like.svg";
+import ImageWithFallback from "./components/imageWithFallback";
 
 const App = () => {
   const [images, setImages] = useState();
+  const [filters, setFilters] = useState("");
 
   useEffect(() => {
     fetch("images?limit=10")
@@ -16,24 +18,30 @@ const App = () => {
 
   return (
     <div className="content">
+      {/* <select>
+        <option value="user">Some option</option>
+        <option value="otherOption">Other option</option>
+      </select> */}
       <div className="timeline">
         {images?.map((img) => (
           <div className="item" key={img.id}>
-            <div className="timestamp">
+            <div>
               <label className="timestamp">
                 {format(new Date(img.created_at), "d MMM yyyy")}
               </label>
             </div>
             <div className="item-image">
-              <img
-                src={`${img.url}.jpg`}
-                alt={img.alt_description}
-                className="car"
-              />
-              <img
+              <div className="car-container">
+                <ImageWithFallback
+                  imageURL={img.url}
+                  alt={img.alt_description}
+                  className="car"
+                />
+              </div>
+              <ImageWithFallback
                 className="user"
-                src={`${img.user.profile_image}.webp`}
-                alt=""
+                imageURL={img.user.profile_image}
+                alt={img.user.alt}
               />
             </div>
             <div className="icon-container">
