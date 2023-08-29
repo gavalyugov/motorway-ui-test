@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { format } from "date-fns";
+import { ReactComponent as Like } from "./icons/like.svg";
 
 const App = () => {
   const [images, setImages] = useState();
@@ -23,16 +24,24 @@ const App = () => {
                 {format(new Date(img.created_at), "d MMM yyyy")}
               </label>
             </div>
-            <img
-              src={`${img.url}.jpg`}
-              alt={img.alt_description}
-              className="car"
-            />
-            <img
-              className="user"
-              src={`${img.user.profile_image}.webp`}
-              alt=""
-            />
+            <div className="item-image">
+              <img
+                src={`${img.url}.jpg`}
+                alt={img.alt_description}
+                className="car"
+              />
+              <img
+                className="user"
+                src={`${img.user.profile_image}.webp`}
+                alt=""
+              />
+            </div>
+            <div className="icon-container">
+              <div className="like">
+                <Like />
+              </div>{" "}
+              {img.likes}
+            </div>
           </div>
         ))}
       </div>
