@@ -2,8 +2,12 @@ body {
     background: #faf8f8;
 }
 .timeline {
-    width: calc(100% / 3);
     border-left: 0.2rem solid #1d1d1b;
+    width: 100%;
+
+    @media screen and (min-width: 60em) {
+        width: calc(100% / 3);
+    }
 }
 
 .timeline .item:before {
@@ -23,13 +27,23 @@ body {
 
 .car {
     border-radius: 0.3rem;
-    max-width: 24rem;
+    max-width: 16rem;
+
+    @media screen and (min-width: 60em) {
+       max-width: 24rem;
+    }
 }
 
 .item {
+    display: inline-block;
     position: relative;
-    padding-left: 4rem;
-    margin: 4rem 0;
+    padding-left: 2rem;
+    margin: 2rem 0;
+
+    @media screen and (min-width: 60em) {
+        padding-left: 4rem;
+        margin: 4rem 0;
+     }
 }
 
 .item-image {
@@ -39,17 +53,27 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    margin: 2rem 4rem;
+
+    @media screen and (min-width: 60em) {
+        margin: 2rem 4rem;
+    }
 }
 
 .user {
     position: absolute;
-    top:-2rem;
-    right: -2rem;
     border: 0.2rem solid white;
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    top:-1.5rem;
+    right: -1.5rem;
+    width: 3rem;
+    height: 3rem;
+    
+    @media screen and (min-width: 60em) {
+        top:-2rem;
+        right: -2rem;
+        width: 4rem;
+        height: 4rem;
+    }
 }
 
 .carousel .thumb {
