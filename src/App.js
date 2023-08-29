@@ -17,12 +17,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className='app'>
+    <div className='app grid'>
       {
-        images && images.map(img => (
-          <div key={img.id} >
-            <img src={`${img.url}.jpg`} alt=''/>
-            <img src={`${img.user.profile_image}.webp`} alt=''/>
+         images?.map(img => (
+          <div key={img.id}>
+            <img src={`${img.url}.jpg`} alt='' className='car'/>
+            <img src={`${img.user.profile_image}.webp`} alt='' className='user'/>
           </div>
         ))
       }
