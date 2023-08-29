@@ -23,7 +23,7 @@ body {
 
 .item {
     padding-left: 4rem;
-    margin: 2rem 0;
+    margin: 4rem 0;
     position: relative;
 }
 
@@ -35,8 +35,9 @@ body {
 
 .user {
     position: absolute;
-    top:1rem;
-    right: 1rem;
+    top:-2rem;
+    right: -2rem;
+    border: 0.2rem solid white;
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
