@@ -1,20 +1,47 @@
-.grid {
-    display: grid;
-    grid-column: 1;
+body {
+    background: #faf8f8;
+}
+.timeline {
+    width: calc(100% / 3);
+    border-left: 0.2rem solid red;
+}
 
-    @media screen and (min-width: 60em) {
-        grid-template-columns: repeat(3, 1fr);
-        grid-column: 3;
-    }
+.timeline .item:before {
+    background-color: red;
+    border-radius: 50%;
+    content: '';
+    height: 0.5rem;
+    left: -0.35rem;
+    position: absolute;
+    width: 0.5rem;
 }
 
 .car {
+    border-radius: 0.3rem;
     max-width: 24rem;
-    max-height: 12rem;
+}
+
+.item {
+    padding-left: 4rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 4rem;
 }
 
 .user {
+    position: absolute;
+    top:1rem;
+    right: 1rem;
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
+}
+
+.carousel .thumb {
+    width: auto;
 }
