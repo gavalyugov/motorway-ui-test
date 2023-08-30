@@ -1,57 +1,56 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import "./css/App.css";
+import "./css/User.css";
 import { format } from "date-fns";
 import { ReactComponent as Like } from "./icons/like.svg";
-import ImageWithFallback from "./components/imageWithFallback";
+import Car from "./components/Car";
+import UserFilter from "./components/UserFilter";
 
 const App = () => {
   const [images, setImages] = useState();
-  const [filters, setFilters] = useState("");
+  const [filteredImages, setFilteredImages] = useState(images);
 
   useEffect(() => {
     fetch("images?limit=10")
       .then((res) => res.json())
       .then((data) => {
-        setImages(sortByDate(data));
+        const sortedImages = sortByDate(data);
+        setImages(sortedImages);
+        setFilteredImages(sortedImages);
       });
   }, []);
 
+  const filterByUser = (userId) => {
+    setFilteredImages(images.filter((image) => image.user.id === userId));
+  };
+
   return (
-    <div className="content">
-      {/* <select>
-        <option value="user">Some option</option>
-        <option value="otherOption">Other option</option>
-      </select> */}
-      <div className="timeline">
-        {images?.map((img) => (
-          <div className="item" key={img.id}>
-            <div>
-              <label className="timestamp">
-                {format(new Date(img.created_at), "d MMM yyyy")}
-              </label>
-            </div>
-            <div className="item-image">
-              <div className="car-container">
-                <ImageWithFallback
-                  imageURL={img.url}
-                  alt={img.alt_description}
-                  className="car"
-                />
+    <div className="container">
+      <div className="content">
+        {images && (
+          <UserFilter
+            users={images?.map((img) => img.user)}
+            onFilterByUser={filterByUser}
+          />
+        )}
+        <div className="timeline">
+          {filteredImages?.map((img) => (
+            <div className="item" key={img.id}>
+              <div>
+                <label className="timestamp">
+                  {format(new Date(img.created_at), "d MMM yyyy")}
+                </label>
               </div>
-              <ImageWithFallback
-                className="user"
-                imageURL={img.user.profile_image}
-                alt={img.user.alt}
-              />
+              <Car image={img} />
+              <div className="icon-container">
+                <div className="like">
+                  <Like />
+                </div>{" "}
+                {img.likes}
+              </div>
             </div>
-            <div className="icon-container">
-              <div className="like">
-                <Like />
-              </div>{" "}
-              {img.likes}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

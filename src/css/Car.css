@@ -1,0 +1,46 @@
+.car-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.car-container {
+    overflow: hidden;
+    border-radius: 0.3rem;
+}
+
+.car {
+    transition: transform .2s;
+    width: 18rem;
+    max-width: 18rem;
+    border-radius: 0.3rem;
+
+    @media screen and (min-width: 60em) {
+        width: 24rem;
+        max-width: 24rem;
+    }
+}
+
+.car:hover {
+    transform: scale(1.125);
+    border-radius: 0.3rem;
+}
+
+.car-item .user {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+
+    @media screen and (min-width: 60em) {
+        top: -2rem;
+        right: -2rem;
+    }
+}
+
+.quote {
+    padding: 0.5rem;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    position: absolute;
+    top: -2.4;
+}

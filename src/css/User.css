@@ -1,0 +1,26 @@
+.user {
+    border: 0.2rem solid #fef200;
+    border-radius: 50%;  
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    
+    @media screen and (min-width: 60em) {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+.user-filters {
+    display: grid;
+    position: relative;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    grid-template-columns: repeat(6, 1fr);
+
+    @media screen and (min-width: 60em) {
+        grid-template-columns: repeat(3, 1fr);
+        width: 4rem;
+        height: 4rem;
+    }
+}

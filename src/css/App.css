@@ -1,0 +1,76 @@
+body {
+    background: #faf8f8;
+}
+
+.container {
+    display: flex;
+
+    @media screen and (min-width: 60em) {
+        margin: 2rem 4rem;
+    }
+}
+
+.content {
+    display: grid;
+    row-gap: 4rem;
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: 60em) {
+        grid-template-columns: 1fr 2fr;
+        row-gap: 0;
+        column-gap: 12rem;
+        padding-left: 4rem;
+        margin: 3.2rem 0;
+     }
+}
+
+.timeline {
+    border-left: 0.2rem solid #1d1d1b;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline .item:before {
+    background-color: #1d1d1b;
+    border-radius: 50%;
+    content: '';
+    height: 0.5rem;
+    left: -0.35rem;
+    top: 0.35rem;
+    position: absolute;
+    width: 0.5rem;
+}
+
+.timeline .timestamp {
+    margin-bottom: 0.35rem;
+}
+
+.item {
+    display: inline-block;
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+
+    @media screen and (min-width: 60em) {
+        padding-left: 4rem;
+        margin: 3.2rem 0;
+     }
+}
+
+.like svg {
+    color: #4267b2;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.modal-image {
+    max-width: calc(100% - 80px);
+}
