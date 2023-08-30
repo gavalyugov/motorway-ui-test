@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./css/App.css";
 import "./css/User.css";
-import { format } from "date-fns";
-import { ReactComponent as Like } from "./icons/like.svg";
-import Car from "./components/Car";
+import CarPost from "./components/CarPost";
 import UserFilter from "./components/UserFilter";
+import CarPostLabel from "./components/CarPostLabel";
+import CarPostDetails from "./components/CarPostDetails";
 
 const App = () => {
   const [images, setImages] = useState();
   const [filteredImages, setFilteredImages] = useState(images);
 
+  const fetchImages = async () => {
+    const imagesResponse = await fetch("images?limit=10");
+    const images = await imagesResponse.json();
+    const sortedImages = sortByDate(images);
+    setImages(sortedImages);
+    setFilteredImages(sortedImages);
+  };
+
   useEffect(() => {
-    fetch("images?limit=10")
-      .then((res) => res.json())
-      .then((data) => {
-        const sortedImages = sortByDate(data);
-        setImages(sortedImages);
-        setFilteredImages(sortedImages);
-      });
+    fetchImages();
   }, []);
 
   const filterByUser = (userId) => {
@@ -34,20 +36,11 @@ const App = () => {
           />
         )}
         <div className="timeline">
-          {filteredImages?.map((img) => (
-            <div className="item" key={img.id}>
-              <div>
-                <label className="timestamp">
-                  {format(new Date(img.created_at), "d MMM yyyy")}
-                </label>
-              </div>
-              <Car image={img} />
-              <div className="icon-container">
-                <div className="like">
-                  <Like />
-                </div>{" "}
-                {img.likes}
-              </div>
+          {filteredImages?.map((image) => (
+            <div className="item" key={image.id}>
+              <CarPostLabel image={image} />
+              <CarPost image={image} />
+              <CarPostDetails image={image} />
             </div>
           ))}
         </div>

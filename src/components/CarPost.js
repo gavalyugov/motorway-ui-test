@@ -3,7 +3,7 @@ import ImageWithFallback from "./ImageWithFallback";
 import "../css/Car.css";
 import ImageModal from "./ImageModal";
 
-const Car = ({ image }) => {
+const CarPost = ({ image }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -37,4 +37,4 @@ const Car = ({ image }) => {
   );
 };
 
-export default Car;
+export default CarPost;
