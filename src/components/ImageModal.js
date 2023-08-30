@@ -1,5 +1,4 @@
 import Modal from "react-modal/lib/components/Modal";
-import React from "react";
 import ImageWithFallback from "./ImageWithFallback";
 
 const MODAL_STYLES = {

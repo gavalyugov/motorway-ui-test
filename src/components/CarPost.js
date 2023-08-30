@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ImageWithFallback from "./ImageWithFallback";
 import "../css/Car.css";
 import ImageModal from "./ImageModal";

@@ -1,0 +1,23 @@
+.input {
+    margin-top: 0.25rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.row {
+    display: flex;
+}
+
+.salaryMin {
+    margin-right: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -5,6 +5,7 @@ import CarPost from "./components/CarPost";
 import UserFilter from "./components/UserFilter";
 import CarPostLabel from "./components/CarPostLabel";
 import CarPostDetails from "./components/CarPostDetails";
+import Form from "./components/Form";
 
 const App = () => {
   const [images, setImages] = useState();
@@ -29,12 +30,14 @@ const App = () => {
   return (
     <div className="container">
       <div className="content">
-        {images && (
-          <UserFilter
-            users={images?.map((img) => img.user)}
-            onFilterByUser={filterByUser}
-          />
-        )}
+        <div>
+          {images && (
+            <UserFilter
+              users={images?.map((img) => img.user)}
+              onFilterByUser={filterByUser}
+            />
+          )}
+        </div>
         <div className="timeline">
           {filteredImages?.map((image) => (
             <div className="item" key={image.id}>
@@ -44,6 +47,7 @@ const App = () => {
             </div>
           ))}
         </div>
+        <Form />
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-import React from "react";
-
 const ImageWithFallback = ({ imageURL, alt, className }) => {
   return (
     <picture>
