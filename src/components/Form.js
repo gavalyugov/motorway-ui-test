@@ -18,7 +18,6 @@ const COLOR_OPTIONS = [
 const Form = () => {
   const {
     register,
-    getValues,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 

@@ -10,6 +10,7 @@ const UserFilter = ({ users, onFilterByUser }) => {
             <div
               key={user.id}
               className="filter"
+              data-testid="userFilter"
               onClick={() => onFilterByUser(user.id)}
             >
               <ImageWithFallback

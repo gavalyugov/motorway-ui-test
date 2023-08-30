@@ -15,7 +15,7 @@ const CarPost = ({ image }) => {
   };
 
   return (
-    <div className="car-item">
+    <div className="car-item" data-testid="carItem">
       {modalOpen && (
         <ImageModal isOpen={modalOpen} onClose={closeModal} image={image} />
       )}
